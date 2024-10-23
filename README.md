@@ -201,10 +201,7 @@ The experiment follows a structured pipeline beginning with distributed data pre
 
 **Data Processing Steps**
 
-The following transformations have been done in PySpark:
-1. 
-
-Raw data undergoes systematic preprocessing including handling missing values, text cleaning, and feature engineering. Product descriptions are cleaned and standardized, categorical features are encoded, and numerical features are scaled appropriately. Feature engineering creates additional attributes such as price ratios, text-based features from product descriptions, and category-level aggregations. The processed dataset is then split into train, validation, and test sets before model-specific transformations.
+[to be added]
 
 ### II. Model Implementation
 The implementation strategy accounts for previously discussed challenges, particularly focusing on handling mixed data types and class imbalance while maintaining interpretability. Eight models across two paradigms will be implemented:
