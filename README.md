@@ -19,7 +19,7 @@ The key research questions this project aims to address empirically are:
 
 ## Dataset Description
 
-This study leverages the Amazon Best Sellers dataset (Asaniczka, 2023) sourced from Kaggle, comprising 1,426,337 product listings across multiple categories. The dataset exhibits a significant natural class imbalance, with bestseller products representing only 2% of total listings. 
+This study leverages the Amazon Best Sellers dataset (Asaniczka, 2023) sourced from Kaggle, comprising 1,426,337 product listings across multiple categories. The dataset exhibits a significant natural class imbalance, with bestseller products representing <1% of total listings. 
 
 This imbalanced distribution, combined with the heterogeneous feature space (text descriptions, numerical attributes, and categorical variables), provides an ideal environment for comparing classical classification and anomaly detection approaches. The large-scale nature of the dataset ensures statistical robustness in model evaluation, while its mixed data types reflect real-world e-commerce data complexity.
 
