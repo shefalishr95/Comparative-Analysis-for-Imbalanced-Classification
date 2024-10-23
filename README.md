@@ -28,8 +28,6 @@ This imbalanced distribution, combined with the heterogeneous feature space (tex
 - Sample Size: 1,426,337 observations
 - Features: 6 variables spanning multiple data types
 - Class Distribution: <1% bestsellers vs 99.40% non-bestsellers
-- Missing Values: Present in ratings (encoded as 0) and pricing features
-- Time Period: [PERIOD if available]
 
 ### Feature Description
 
