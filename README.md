@@ -19,7 +19,7 @@ The key research questions this project aims to address empirically are:
 
 ## Dataset Description
 
-This study leverages the Amazon Best Sellers dataset (Asaniczka, 2023) sourced from Kaggle, comprising 1,426,337 product listings across multiple categories. The dataset exhibits a significant natural class imbalance, with bestseller products representing <1% of total listings. 
+This project uses the Amazon Best Sellers dataset (Asaniczka, 2023) sourced from Kaggle, comprising 1,426,337 product listings across multiple categories. The dataset exhibits a significant natural class imbalance, with bestseller products representing <1% of total listings. 
 
 This imbalanced distribution, combined with the heterogeneous feature space (text descriptions, numerical attributes, and categorical variables), provides an ideal environment for comparing classical classification and anomaly detection approaches. The large-scale nature of the dataset ensures statistical robustness in model evaluation, while its mixed data types reflect real-world e-commerce data complexity.
 
@@ -60,9 +60,9 @@ This imbalanced distribution, combined with the heterogeneous feature space (tex
 
 Detailed data processing steps, descriptive statistics, and exploratory data analysis will be presented in subsequent sections. 
 
-## Anticipated Pitfalls
+## Anticipated Pitfalls and Proposed Solutions
 
-Applying anomaly detection models to classification problems, even imbalanced classification problems, is not a novel approach. While several studies have demonstrated the potential of using anomaly detection for imbalanced classification tasks (**citations needed**), the effectiveness of this approach depends heavily on data characteristics and problem context. Before detailing the experimental setup, it is important to understand the potential pitfalls and challenges in applying these methods to e-commerce bestseller classification, particularly with mixed data types.
+Applying anomaly detection models to classification problems, even imbalanced classification problems, is not a novel approach. While several studies have demonstrated the potential of using anomaly detection for imbalanced classification tasks, the effectiveness of this approach depends heavily on data characteristics and problem context. Before detailing the experimental setup, it is important to understand the potential pitfalls and challenges in applying these methods to e-commerce bestseller classification, particularly with mixed data types.
 
 #### 1. Fundamental paradigm mistamtch
 The primary pitfall in applying anomaly detection to bestseller classification stems from the fundamental difference in assumptions. While classification approaches aim to learn decision boundaries between defined classes, anomaly detection is inherently asymmetric, focusing on characterizing a single "normal" class and identifying deviations from it. Speifically, in context of our dataset:
@@ -71,7 +71,7 @@ The primary pitfall in applying anomaly detection to bestseller classification s
 - Unusual non-bestsellers might be falsely flagged as bestsellers merely for being atypical
 
 Recent studies have proposed sophisticated solutions like outlier scores (Kong et al., 2020) and generative models (Buitrago et al., 2018) to bridge this paradigm gap. However, systematic empirical evidence comparing basic implementations of both approaches remains limited. This project focuses on:
-- *Direct Comparison*: Evaluating standard implementations of both paradigms, specifically selecting anomaly detection models (Isolation Forests, k-NN, One-Class SVM, Autoencoders) whose underlying assumptions align with heterogeneous e-commerce data characteristics, rather than methods requiring strict distributional assumptions like Gaussian Mixture Models
+- *Direct Comparison*: Evaluating standard implementations of both paradigms, specifically selecting anomaly detection models (Isolation Forests, k-NN, One-Class SVM, Autoencoders) whose underlying assumptions *broadly* align with heterogeneous e-commerce data characteristics (some customizations might still be needed), rather than methods requiring strict distributional assumptions like Gaussian Mixture Models
 - *Consistent Evaluation*: Using the same metrics and validation strategy across all models
 - *Practical Viability*: Assessing computational requirements and implementation complexity
 
@@ -115,7 +115,7 @@ The curse of dimensionality from text vectors can make normal points appear as o
 
 To address these challenges, firstly,  feature processing begins with type-specific transformations: TF-IDF vectorization for text, standard scaling for numerical features, and one-hot encoding for categorical variables, with careful attention to normalization to balance feature contributions. Seoncdly, dimensionality reduction will be done using PCA for numerical/encoded features while preserving max. variance, and appropriate methods for text embeddings to manage the high-dimensionality. Model-specific parameters will be tuned to handle the mixed feature space, e.g., Isolation Forest's max_features parameter to prevent text feature dominance, k-NN's composite distance metrics etc. Validation will include monitoring anomaly scores across feature subsets and information loss during dimensionality reduction to ensure detected patterns align with domain knowledge and maintain business relevance.
 
-**Note**: The choice of method using for text-to-vector embeddings will be discussed in subsequent sections.
+**Note**: The choice of method using for text-to-vector embeddings will be discussed later.
 
 #### 4. Big Data Processing
 Processing a large-scale e-commerce dataset (n=1.4M) with mixed data types presents significant computational challenges. Traditional in-memory processing becomes unfeasible with high-dimensional text vectors and multiple preprocessing steps. Additionally, the iterative nature of model tuning and validation requires efficient data handling strategies, particularly when running multiple models for comparison.
