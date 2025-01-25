@@ -1,0 +1,8 @@
+sagemaker
+scikit-learn
+pandas
+numpy
+xgboost
+ipykernel
+transformers 
+mlflow
