@@ -72,8 +72,9 @@ if __name__ == "__main__":
     base_dir = "/opt/ml/processed"
 
     df = pd.read_parquet(
-        f"{base_dir}/input/data.paraquet")
-    
+        f"{base_dir}/input/transformed-data.paraquet")
+
+
     num_transformer = Pipeline(
         steps=[("imputer", SimpleImputer(strategy="median")), ("scaler", StandardScaler())]
     )
@@ -117,8 +118,6 @@ if __name__ == "__main__":
 
     # Save the data to csv files in the processed directory
 
-    pd.DataFrame(train).to_csv(f"{base_dir}/train/train.csv", header=False, index=False)
-    pd.DataFrame(validation).to_csv(
-        f"{base_dir}/validation/validation.csv", header=False, index=False
-    )
-    pd.DataFrame(test).to_csv(f"{base_dir}/test/test.csv", header=False, index=False)
+    pd.DataFrame(train).to_parquet(f"{base_dir}/train/train.parquet", header=False, index=False)
+    pd.DataFrame(validation).to_parquet(f"{base_dir}/validation/validation.parquet", header=False, index=False)
+    pd.DataFrame(test).to_parquet(f"{base_dir}/test/test.parquet", header=False, index=False)

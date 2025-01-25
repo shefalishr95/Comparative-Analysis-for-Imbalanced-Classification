@@ -164,4 +164,3 @@ cython_debug/
 
 # Sagemaker pipelines data files
 sagemaker-pipelines/train/local-debugging/data.parquet
-sagemaker-pipelines/xgboost/data.parquet
