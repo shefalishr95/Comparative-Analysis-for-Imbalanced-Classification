@@ -94,10 +94,10 @@ def get_pipeline(pipeline_name):
     
     hyperparameter_ranges = {
         "eta": ContinuousParameter(0.01, 0.2), 
-        # "min_child_weight": IntegerParameter(1, 3),
+        "min_child_weight": IntegerParameter(1, 3),
         "max_depth": IntegerParameter(3, 10),
-        # "num_round": IntegerParameter(50, 55), 
-        # "scale_pos_weight": ContinuousParameter(20, 22)
+        "num_round": IntegerParameter(50, 55), 
+        "scale_pos_weight": ContinuousParameter(20, 22)
     }
     
     logger.info("Initializing HyperparameterTuner")
