@@ -1,4 +1,0 @@
-region: us-east-1
-default_bucket: my-default-bucket
-model_package_group_name: MLImbalancedClassificationAmazonDataset-us-east-1
-role: arn:aws:iam::123456789012:role/SageMakerRole
