@@ -81,7 +81,6 @@ flowchart TD
     subgraph Training["Model Training (SageMaker)"]
         E --> H[Classical Models]
         E --> I[Anomaly Detection]
-        F --> |Hyperparameter Tuning| Training
         
         subgraph CM[Classical Models]
             H --> J[Logistic Regression]
@@ -101,9 +100,9 @@ flowchart TD
     subgraph Evaluation["Model Evaluation"]
         J & K & L & M & N & O & P & Q --> R[Performance Metrics]
         R --> T[Interpretability Analysis]
-        F --> |Validation Performance| R
     end
 
+    F --> |Hyperparameter Tuning| Training
     G --> |Final Evaluation| Evaluation
 ```
 
