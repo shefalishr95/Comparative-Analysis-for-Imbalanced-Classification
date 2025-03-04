@@ -78,6 +78,9 @@ flowchart TD
     subgraph Training["Model Training (SageMaker)"]
         E --> H[Classical Models]
         E --> I[Anomaly Detection]
+
+        F --> H[Classical Models]
+        F --> I[Anomaly Detection]
         
         subgraph CM[Classical Models]
             H --> J[Logistic Regression]
