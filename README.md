@@ -61,9 +61,6 @@ This project uses the Amazon Best Sellers dataset (Asaniczka, 2023) sourced from
 
 ## Experiment Set-Up
 
-Based on the challenges and mitigation strategies discussed, this section outlines the experimental framework that will be used  to compare classical machine learning and anomaly detection models for classifying Amazon bestsellers in a highly imbalanced, mixed-data. The experiments will leverage AWS Glue and SageMaker for scalable data processing and model training.
-
-
 ```mermaid
 flowchart TD
     subgraph Data["Data Processing (AWS Glue)"]
