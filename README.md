@@ -102,6 +102,5 @@ flowchart TD
         R --> T[Interpretability Analysis]
     end
 
-    F --> |Hyperparameter Tuning| Training
     G --> |Final Evaluation| Evaluation
 ```
